@@ -16,7 +16,7 @@ public class CustomerTest {
 
     @Test
     public void testY(){
-        int daysRented = 0;
+        int daysRented = 2;
         Customer customer = createRental(daysRented);
         assertEquals("Rental Record for null\n" +
                 "\t2.0(null)\n" +
