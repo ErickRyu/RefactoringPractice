@@ -5,6 +5,8 @@ import static org.junit.Assert.*;
 
 public class CustomerTest {
 
+    public static final int TWO_DAYS = 2;
+    public static final int THREE_DAYS = 3;
     String name = null;
     Customer customer = new Customer(name);
 
@@ -17,8 +19,7 @@ public class CustomerTest {
 
     @Test
     public void testY(){
-        int daysRented = 2;
-        Rental rental = createRental(daysRented);
+        Rental rental = createRental(TWO_DAYS);
         customer.addRental(rental);
         assertEquals("Rental Record for null\n" +
                 "\t2.0(null)\n" +
@@ -29,8 +30,7 @@ public class CustomerTest {
 
     @Test
     public void regularMovieTest(){
-        int daysRented = 3;
-        Rental rental = createRental(daysRented);
+        Rental rental = createRental(THREE_DAYS);
         customer.addRental(rental);
         assertEquals("Rental Record for null\n" +
                 "\t3.5(null)\n" +
