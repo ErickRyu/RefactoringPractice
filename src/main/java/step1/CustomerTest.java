@@ -19,7 +19,7 @@ public class CustomerTest {
 
     @Test
     public void testY(){
-        Rental rental = createRental(TWO_DAYS);
+        Rental rental = createRental(TWO_DAYS, 0);
         customer.addRental(rental);
         assertEquals("Rental Record for null\n" +
                 "\t2.0(null)\n" +
@@ -29,8 +29,8 @@ public class CustomerTest {
 
 
     @Test
-    public void regularMovieTest(){
-        Rental rental = createRental(THREE_DAYS);
+    public void regularMovie_in_statement(){
+        Rental rental = createRental(THREE_DAYS, 0);
         customer.addRental(rental);
         assertEquals("Rental Record for null\n" +
                 "\t3.5(null)\n" +
@@ -38,8 +38,17 @@ public class CustomerTest {
                 "You earned 1 frequent renter pointers", customer.statement());
     }
 
-    private Rental createRental(int daysRented) {
-        int priceCode = 0;
+    @Test
+    public void testZ(){
+        Rental rental = createRental(THREE_DAYS, 1);
+        customer.addRental(rental);
+        assertEquals("Rental Record for null\n" +
+                "\t9.0(null)\n" +
+                "Amount owed is 9.0\n" +
+                "You earned 2 frequent renter pointers", customer.statement());
+    }
+
+    private Rental createRental(int daysRented, int priceCode) {
         String title = null;
         Movie movie = new Movie(title, priceCode);
         Rental rental = new Rental(movie, daysRented);
