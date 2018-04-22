@@ -12,7 +12,9 @@ public class Customer {
 
 	public Customer(String name) {
 		this.name = name;
-	};
+	}
+
+	;
 
 	public void addRental(Rental rental) {
 		rentals.add(rental);
@@ -20,31 +22,40 @@ public class Customer {
 
 	public String getName() {
 		return name;
-	};
+	}
+
+	;
 
 	public String statement() {
-		double totalAmount = 0;
 		int frequentRenterPoints = 0;
 		Iterator<Rental> iterator = rentals.iterator();
 		String result = "Rental Record for " + getName() + "\n";
 
-		while ( iterator.hasNext() ) {
+		while (iterator.hasNext()) {
 			Rental each = (Rental) iterator.next();
 			// determine amounts for each line
 
 			// add frequent renter points
 			frequentRenterPoints = each.getFrequentRenterPoints();
 			// show figures
-			result += "\t" +  String.valueOf(each.getCharge()) + "(" + each.getMovie().getTitle() + ")" + "\n";
+			result += "\t" + String.valueOf(each.getCharge()) + "(" + each.getMovie().getTitle() + ")" + "\n";
 
-			totalAmount += each.getCharge();
 		}
 
-		result += "Amount owed is " + String.valueOf(totalAmount) + "\n";
+		result += "Amount owed is " + String.valueOf(getTotalCharge()) + "\n";
 		result += "You earned " + String.valueOf(frequentRenterPoints) + " frequent renter pointers";
 
 		return result;
 	}
 
+	private double getTotalCharge() {
+		double result = 0;
+		Iterator<Rental> iterator = rentals.iterator();
+		while (iterator.hasNext()) {
+			Rental each = (Rental) iterator.next();
+			result += each.getCharge();
+		}
+		return result;
+	}
 
 }
