@@ -69,6 +69,16 @@ public class CustomerTest {
                 "You earned 1 frequent renter pointers", customer.statement());
     }
 
+    @Test
+    public void htmlStatement_childrenMovie_with_more_than_three_days(){
+        Rental rental = createRental(FOUR_DAYS, Movie.CHILDRENS);
+        customer.addRental(rental);
+        assertEquals("<H1><EMnull 고객님의 대여 기록 </EM></H1><P>\n" +
+                "null: 3.0<BR>\n" +
+                "<P>누적 대여료 <EM>3.0</EM><P>\n" +
+                "적립 포인트 <EM>1</EM><P>", customer.htmlStatement());
+    }
+
     private Rental createRental(int daysRented, int priceCode) {
         String title = null;
         Movie movie = new Movie(title, priceCode);

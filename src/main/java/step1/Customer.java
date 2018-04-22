@@ -37,6 +37,23 @@ public class Customer {
 		return result;
 	}
 
+	public String htmlStatement() {
+	    Iterator<Rental>iterator = rentals.iterator();
+	    String result = "<H1><EM" + getName() + " 고객님의 대여 기록 </EM></H1><P>\n";
+	    while(iterator.hasNext()){
+	        Rental each = (Rental) iterator.next();
+
+	        // show figures
+	        result += each.getMovie().getTitle() + ": "  +
+                    String.valueOf(each.getCharge()) + "<BR>\n";
+        }
+
+        // add footer
+        result += "<P>누적 대여료 <EM>" + String.valueOf(getTotalCharge()) + "</EM><P>\n";
+	    result += "적립 포인트 <EM>" + String.valueOf(getFrequentRenterPoints()) + "</EM><P>";
+	    return result;
+
+    }
 	private double getTotalCharge() {
 		double result = 0;
 		Iterator<Rental> iterator = rentals.iterator();
