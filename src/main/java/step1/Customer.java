@@ -29,7 +29,6 @@ public class Customer {
 		String result = "Rental Record for " + getName() + "\n";
 
 		while ( iterator.hasNext() ) {
-			double thisAmount = 0;
 			Rental each = (Rental) iterator.next();
 			// determine amounts for each line
 
