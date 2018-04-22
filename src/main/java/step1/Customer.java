@@ -33,17 +33,15 @@ public class Customer {
 			Rental each = (Rental) iterator.next();
 			// determine amounts for each line
 
-			thisAmount = each.getCharge();
-
 			// add frequent renter points
 			frequentRenterPoints++;
 			// add bonus for a two day new release rental
 			if ((each.getMovie().getPriceCode() == Movie.NEW_RELEASE) && each.getDaysRented() > 1)
 				frequentRenterPoints++;
 			// show figures
-			result += "\t" +  String.valueOf(thisAmount) + "(" + each.getMovie().getTitle() + ")" + "\n";
+			result += "\t" +  String.valueOf(each.getCharge()) + "(" + each.getMovie().getTitle() + ")" + "\n";
 
-			totalAmount += thisAmount;
+			totalAmount += each.getCharge();
 		}
 
 		result += "Amount owed is " + String.valueOf(totalAmount) + "\n";
