@@ -19,8 +19,8 @@ public class CustomerTest {
     }
 
     @Test
-    public void testY(){
-        Rental rental = createRental(TWO_DAYS, 0);
+    public void regularMovie_in_statement_less_than_three_days(){
+        Rental rental = createRental(TWO_DAYS, Movie.REGULAR);
         customer.addRental(rental);
         assertEquals("Rental Record for null\n" +
                 "\t2.0(null)\n" +
