@@ -39,7 +39,7 @@ public class CustomerTest {
     }
 
     @Test
-    public void testZ(){
+    public void newReleaseMovie_in_statement(){
         Rental rental = createRental(THREE_DAYS, Movie.NEW_RELEASE);
         customer.addRental(rental);
         assertEquals("Rental Record for null\n" +
