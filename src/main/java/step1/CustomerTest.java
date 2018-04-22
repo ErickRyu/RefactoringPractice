@@ -30,7 +30,7 @@ public class CustomerTest {
 
 
     @Test
-    public void regularMovie_in_statement(){
+    public void regularMovie_in_statement_more_than_two_days(){
         Rental rental = createRental(THREE_DAYS, Movie.REGULAR);
         customer.addRental(rental);
         assertEquals("Rental Record for null\n" +
