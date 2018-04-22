@@ -30,7 +30,7 @@ public class CustomerTest {
 
     @Test
     public void regularMovie_in_statement(){
-        Rental rental = createRental(THREE_DAYS, 0);
+        Rental rental = createRental(THREE_DAYS, Movie.REGULAR);
         customer.addRental(rental);
         assertEquals("Rental Record for null\n" +
                 "\t3.5(null)\n" +
@@ -40,7 +40,7 @@ public class CustomerTest {
 
     @Test
     public void testZ(){
-        Rental rental = createRental(THREE_DAYS, 1);
+        Rental rental = createRental(THREE_DAYS, Movie.NEW_RELEASE);
         customer.addRental(rental);
         assertEquals("Rental Record for null\n" +
                 "\t9.0(null)\n" +
